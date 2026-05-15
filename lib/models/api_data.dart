@@ -10,17 +10,17 @@ class User{
   User( {required this.id, required this.name, required this.email, required this.phone,required this.address});
 
 factory User.fromJson(Map<String,dynamic> json ){
-  return User(id: json['id'],
-   name: json['name'],
-    email: json['email'],
-     phone: json['phone'],
-     address:Address.fromJson(json['address'])
+  return User(id: json['id'] ?? '',
+   name: json['name'] ?? 'unknown',
+    email: json['email'] ?? '__',
+     phone: json['phone'] ?? '',
+     address:Address.fromJson(json['address'] ?? 'not provided')
      );
 }
 
 Map<String ,dynamic> toJson(){
   return{
-    'id':id,
+    'id':id ,
     'name':name,
     'email':email,
     'phone':phone,

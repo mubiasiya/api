@@ -35,6 +35,15 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  List<User> users=[];
+
+  @override
+  void initState() {
+   
+    super.initState();
+    users=parseList();
+  }
+
   @override
   Widget build(BuildContext context) {
     // User user = User(
@@ -44,8 +53,9 @@ class _MyHomePageState extends State<MyHomePage> {
     //   phone: '9995515822',
     //   address: Address(city: 'Kasaragod', street: 'Alampady'),
     // );
+    
 
-    List<User> users=parseList();
+   
 
     return Scaffold(
       appBar: AppBar(
@@ -93,7 +103,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                     Text(user.phone, style: TextStyle(color: Colors.black)),
                     Text(
-                      '${user.address.city + ' , ' + user.address.street} ',
+                      '${user.address.city} ,${user.address.street} ',
                       style: TextStyle(color: Colors.black),
                     ),
                   ],
